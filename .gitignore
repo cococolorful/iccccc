@@ -1,7 +1,8 @@
 .vscode
 *.bsp
 *.scala-build
-
+/build
+/_build
 docs/build
 */obj_dir
 /nvboard
