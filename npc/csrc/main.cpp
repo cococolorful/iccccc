@@ -7,7 +7,6 @@
 #include "verilated.h"
 #include "Vexample.h"
 
-#define MAX_SIM_TIME 20
 vluint64_t sim_time = 0;
 
 int main(int argc, char** argv, char** env) {
@@ -23,18 +22,14 @@ int main(int argc, char** argv, char** env) {
     std::cin >> max_sim_time;
 
     while (sim_time < max_sim_time) {
-        // dut->eval();
-        // m_trace->dump(sim_time);
-        sim_time++;
-
-          int a = rand() & 1;
-      int b = rand() & 1;
-      dut->a = a;
-      dut->b = b;
+      dut->clock ^= 1;
+      dut->io_in = sim_time;
+      dut->reset = !(sim_time < 2); // 0:reset 1:normal
+      std::cout << "sim_time: " << sim_time << std::endl;
       dut->eval();
-      printf("a = %d, b = %d, f = %d\n", a, b, dut->f);
-      assert(dut->f == (a ^ b));
-      
+      printf("a = %d, b = %d, f = %d\n", dut->io_out, dut->io_out, dut->io_out);
+
+      sim_time++;
     }
 
     m_trace->close();
