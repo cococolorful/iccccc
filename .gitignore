@@ -1,4 +1,4 @@
-.vscode
+
 *.bsp
 *.scala-build
 /build
