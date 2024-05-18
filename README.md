@@ -8,5 +8,15 @@
  在 <a href="https://cococolorful.github.io/iccccc/">iccccc</a> 查看详细文档
 </p>
 
-# TODO
+# CMD
 
+1. build the document from source code
+
+    ```
+    make preview_docs
+    ```
+2. generate the new playroom for practice
+    
+    ```
+    make generte_template
+    ```
