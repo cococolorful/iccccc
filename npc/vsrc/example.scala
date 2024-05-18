@@ -15,7 +15,7 @@ class RegisterModule extends Module {
   })
   
   val register = Reg(UInt(12.W))
-  register := io.in + 1.U
+  register := io.in + 1
   io.out := register
 }
 
