@@ -8,7 +8,7 @@ module RegisterModule(
 
   reg [11:0] register;
   always @(posedge clock)
-    register <= io_in;
+    register <= io_in + 12'h1;
   assign io_out = register;
 endmodule
 

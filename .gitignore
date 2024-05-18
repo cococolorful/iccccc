@@ -4,5 +4,5 @@
 /build
 /_build
 docs/build
-*/obj_dir
+/example/*/obj_dir
 /nvboard

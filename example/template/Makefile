@@ -10,17 +10,17 @@ RESET := "\033[0m\n"
 
 build:
 	$(call print_color,$(CYAN),"Compiling Chisel...")
-	scala-cli ./vsrc/example.scala
+	@scala-cli ./vsrc/example.scala
 
 	mv example.sv ./vsrc/example.sv 
 	$(call print_color,$(CYAN),"Compiling Verilog...")
-	verilator-docker --trace --cc ./vsrc/example.sv --exe ./csrc/main.cpp
+	@verilator-docker --trace --cc ./vsrc/example.sv --exe ./csrc/main.cpp
 
 	$(call print_color,$(CYAN),"Building simulation...")
-	make -C obj_dir -f Vexample.mk
+	@make -C obj_dir -f Vexample.mk
 
 run:
 	$(call print_color,$(CYAN),"Running simulation...")
-	./obj_dir/Vexample 
+	@./obj_dir/Vexample 
 view:
-	gtkwave /tmp/Vexample.vcd
+	@gtkwave /tmp/Vexample.vcd

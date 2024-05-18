@@ -8,4 +8,4 @@
 # SPDX-License-Identifier: LGPL-3.0-only OR Artistic-2.0
 
 
-docker run -ti -v ${PWD}:/work --user $(id -u):$(id -g) verilator/verilator "${@:1}"
+docker run -ti -v ${PWD}:/work --user $(id -u):$(id -g) verilator/verilator "${@:1}" 
